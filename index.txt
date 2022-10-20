@@ -9,3 +9,7 @@ Query 2
 SELECT * FROM `students` WHERE `date_of_birth` > '1992-10-20';
 
 Query 3
+
+SELECT * FROM `courses` WHERE `period` = 'I semestre' AND `year` = 1;
+
+Query 4
