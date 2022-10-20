@@ -21,3 +21,7 @@ Query 5
 SELECT * FROM `degrees` WHERE `level` = 'magistrale';
 
 Query 6
+
+SELECT count(*) FROM `departments`;
+
+Query 7
