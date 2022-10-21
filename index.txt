@@ -6,7 +6,7 @@ SELECT * FROM `courses` WHERE `cfu` > 10;
 
 Query 2
 
-SELECT * FROM `students` WHERE `date_of_birth` > '1992-10-20';
+SELECT * FROM `students` WHERE TIMESTAMPDIFF (YEAR, `date_of_birth`, CURDATE()) > 30
 
 Query 3
 
