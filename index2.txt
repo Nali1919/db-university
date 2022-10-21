@@ -1,0 +1,27 @@
+SELECT COUNT(id) AS `n.iscritti`, YEAR(enrolment_date)
+FROM `students` 
+GROUP BY YEAR(enrolment_date);
+Query 1
+
+
+
+SELECT COUNT(id) AS `n.insegnanti` , `office_number`
+FROM `teachers`
+GROUP BY(`office_number`);
+
+Query 2
+
+
+
+SELECT AVG(`vote`) AS `media_student`,`exam_id`
+FROM `exam_student`
+GROUP BY(`exam_id`);
+
+Query 3
+
+SELECT COUNT(id) as dipartimenti, `department_id` as numero_dipartimento
+FROM `degrees`
+GROUP BY `department_id`
+
+Query 4
+
