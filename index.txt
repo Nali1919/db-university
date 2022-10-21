@@ -6,8 +6,7 @@ SELECT * FROM `courses` WHERE `cfu` > 10;
 
 Query 2
 
-SELECT * FROM `students` WHERE TIMESTAMPDIFF (YEAR, `date_of_birth`, CURDATE()) > 30
-
+SELECT * FROM `students` WHERE `date_of_birth` > '1992-10-20' ;
 Query 3
 
 SELECT * FROM `courses` WHERE `period` = 'I semestre' AND `year` = 1;
@@ -29,3 +28,6 @@ Query 7
 SELECT * FROM `teachers` WHERE `phone` IS NULL;
 
 Query 8
+
+
+ì
