@@ -25,3 +25,12 @@ GROUP BY `department_id`
 
 Query 4
 
+
+Join 1
+
+SELECT students.name, students.surname, degrees.name
+FROM `students`  
+INNER JOIN degrees ON students.degree_id = degrees.department_id
+WHERE degrees.name LIKE '%economia';
+
+
