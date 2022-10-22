@@ -26,11 +26,82 @@ GROUP BY `department_id`
 Query 4
 
 
-Join 1
+JOIN 1
 
 SELECT students.name, students.surname, degrees.name
 FROM `students`  
 INNER JOIN degrees ON students.degree_id = degrees.department_id
 WHERE degrees.name LIKE '%economia';
+
+JOIN 2
+
+SELECT departments.name , degrees.name
+FROM `departments`
+INNER JOIN `degrees`
+on departments.id = degrees.department_id
+WHERE (departments.name like "%neuro%") 
+AND degrees.level = 'magistrale';
+
+JOIN 3
+
+SELECT *
+FROM courses
+INNER JOIN course_teacher
+ON courses.id = course_teacher.course_id
+INNER JOIN teachers
+ON course_teacher.teacher_id = teachers.id
+WHERE
+teachers.id = 44;
+
+JOIN 4
+
+SELECT  students.*,departments.*,degrees.*
+FROM `degrees`
+INNER JOIN `students`
+ON students.degree_id = degrees.id 
+INNER JOIN `departments`
+ON degrees.department_id = departments.id
+ORDER BY students.surname,students.name;
+
+JOIN 5
+
+SELECT degrees.*, courses.`name` as nome_corso, teachers.name, teachers.surname
+FROM `degrees` 
+JOIN `courses`
+ON degrees.`id`= courses.`degree_id` 
+JOIN `course_teacher`
+ON courses.`id`= course_teacher.`course_id` 
+JOIN `teachers`
+ON course_teacher.`teacher_id`= teachers.`id` 
+ORDER BY courses.`id`;
+
+JOIN 6
+
+SELECT DISTINCT `teachers`.`name`, `teachers`.`surname` , `departments` . `name`
+FROM `teachers` 
+JOIN `course_teacher` 
+ON `teachers`.`id`=`course_teacher`.`teacher_id`
+JOIN `courses` 
+ON `course_teacher`.`course_id`=`courses`.`id`
+JOIN `degrees` 
+ON `courses`.`degree_id`= `degrees`.`id`
+JOIN `departments` 
+ON `degrees`.`department_id`=`departments`.`id`
+WHERE `departments`.`name`='Dipartimento di Matematica';
+
+JOIN BONUS
+
+SELECT COUNT(`exam_student`.`student_id`) AS `total`, `courses`.`id` AS `id_courses`, `students`.`id` AS `id_student`, `students`.`surname`, `students`.`name`
+FROM `courses`
+INNER JOIN `exams`
+ON `courses`.`id` = `exams`.`course_id`
+INNER JOIN `exam_student`
+ON `exams`.`id` = `exam_student`.`exam_id`
+INNER JOIN `students`
+ON `exam_student`.`student_id` = `students`.`id`
+GROUP BY `students`.`id`, `courses`.`id`
+ORDER BY `students`.`surname`;
+
+
 
 
