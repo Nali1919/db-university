@@ -34,6 +34,8 @@ if($result = $connessione->query($sql)){
     }
 }
 
+
+$connessione->close();
 ?>
 
 
