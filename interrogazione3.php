@@ -1,7 +1,5 @@
-<h1>Corsi e semestri</h1>
 
 <?php
-
 
 define("DB_SEVERNAME", "localhost");
 define("DB_USERNAME", "root");
@@ -17,14 +15,14 @@ if( $connessione && $connessione->connect_error) {
     die();
 }
 
-$sql = "SELECT * FROM `courses` WHERE `cfu` > 10; "  ;
+$sql = "SELECT * FROM `degrees` WHERE `level` = 'magistrale' ;" ; 
 
 if($result = $connessione->query($sql)){
     if($result->num_rows > 0){
         
 
-    while($courses = $result->fetch_assoc()){
-        echo "<div>" . $courses['name'] . " " .  " " . $courses['period'] .   "</div>"; 
+    while($degrees = $result->fetch_assoc()){
+        echo "<div>" . $degrees['name'] . " <br/>" . $degrees['level'] .   "</div>"; 
         
     }
     }

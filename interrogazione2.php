@@ -1,7 +1,6 @@
-<h1>Corsi e semestri</h1>
+<h1>Studenti del 1990</h1>
 
 <?php
-
 
 define("DB_SEVERNAME", "localhost");
 define("DB_USERNAME", "root");
@@ -17,14 +16,14 @@ if( $connessione && $connessione->connect_error) {
     die();
 }
 
-$sql = "SELECT * FROM `courses` WHERE `cfu` > 10; "  ;
+$sql = "SELECT * FROM `students` WHERE `date_of_birth` BETWEEN '1990-01-01' AND '1990-12-31'; "  ;
 
 if($result = $connessione->query($sql)){
     if($result->num_rows > 0){
         
 
-    while($courses = $result->fetch_assoc()){
-        echo "<div>" . $courses['name'] . " " .  " " . $courses['period'] .   "</div>"; 
+    while($students = $result->fetch_assoc()){
+        echo "<div>" . $students['name'] . " " . $students['surname'] ." " . $students['date_of_birth'] .   "</div>"; 
         
     }
     }
