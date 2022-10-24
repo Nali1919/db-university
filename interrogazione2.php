@@ -23,7 +23,11 @@ if($result = $connessione->query($sql)){
         
 
     while($students = $result->fetch_assoc()){
-        echo "<div>" . $students['name'] . " " . $students['surname'] ." " . $students['date_of_birth'] .   "</div>"; 
+      ?>
+      <div>
+        <p><?= $students['name']. "  " .$students['surname']. "  "  .$students['date_of_birth']; ?></p>
+      </div>
+      <?php
         
     }
     }

@@ -24,10 +24,16 @@ if($result = $connessione->query($sql)){
         
 
     while($courses = $result->fetch_assoc()){
-        echo "<div>" . $courses['name'] . " " .  " " . $courses['period'] .   "</div>"; 
+        ?>
+        <div>
+           <p><?= $courses['name'] . " " . $courses['period']; ?></p>
+        </div>
+        <?php
         
     }
     }
 }
 
 ?>
+
+

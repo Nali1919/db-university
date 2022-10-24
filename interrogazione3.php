@@ -1,4 +1,4 @@
-
+<h1>Corsi di Laurea Magistrali</h1>
 <?php
 
 define("DB_SEVERNAME", "localhost");
@@ -22,7 +22,12 @@ if($result = $connessione->query($sql)){
         
 
     while($degrees = $result->fetch_assoc()){
-        echo "<div>" . $degrees['name'] . " <br/>" . $degrees['level'] .   "</div>"; 
+    
+        ?>
+          <div>
+           <p><?= $degrees['name'] . "<br/>" . $degrees['level']; ?></p>
+          </div>
+        <?php
         
     }
     }
